@@ -101,6 +101,15 @@
         }
         .submit-btn:hover { background: var(--white); }
 
+        /* تنسيق رسالة الشكر */
+        #success-message {
+            display: none; /* مخفي افتراضياً */
+            text-align: center;
+            padding: 30px;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
         /* الأزرار العائمة */
         .floating-buttons { position: fixed; bottom: 25px; right: 25px; display: flex; flex-direction: column; gap: 15px; z-index: 1000; }
         .float-btn {
@@ -154,45 +163,51 @@
             </div>
         </section>
 
-        <!-- قسم استمارة التواصل (تم التعديل للربط المباشر) -->
+        <!-- قسم استمارة التواصل -->
         <section class="contact-section">
             <h2><i class="fa-solid fa-envelope-open-text"></i> استمارة التواصل</h2>
-            <p style="text-align: center; margin-bottom: 30px; color: #ddd;">املأ البيانات أدناه وسيتم إرسال الملفات إلينا مباشرة</p>
             
-            <!-- 
-                التعديل هنا: 
-                تم استخدام خدمة FormSubmit للربط مع الإيميل almoayad.law@gmail.com
-                يجب تفعيل الإيميل عند وصول أول رسالة تجريبية.
-            -->
-            <form action="https://formsubmit.co/almoayad.law@gmail.com" method="POST" enctype="multipart/form-data">
+            <!-- رسالة الشكر (ستظهر بعد الإرسال) -->
+            <div id="success-message">
+                <i class="fa-regular fa-circle-check fa-5x" style="color: var(--primary-gold); margin-bottom: 20px;"></i>
+                <h3 style="color: var(--white); margin-bottom: 10px;">تم استلام طلبك بنجاح!</h3>
+                <p style="color: #ccc;">شكراً لتواصلك معنا، سيتم مراجعة الملفات والرد عليك في أقرب وقت.</p>
+                <button onclick="location.reload()" style="margin-top:20px; padding:10px 20px; background:transparent; border:1px solid var(--primary-gold); color:var(--primary-gold); border-radius:5px; cursor:pointer;">إرسال طلب آخر</button>
+            </div>
+
+            <!-- الاستمارة -->
+            <div id="form-container">
+                <p style="text-align: center; margin-bottom: 30px; color: #ddd;">املأ البيانات أدناه وسيتم إرسال الملفات إلينا مباشرة</p>
                 
-                <!-- إعدادات مخفية للتحكم في الإيميل -->
-                <input type="hidden" name="_subject" value="استمارة تواصل جديدة - موقع المحامي مؤيد">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
+                <form id="contactForm" action="https://formsubmit.co/almoayad.law@gmail.com" method="POST" enctype="multipart/form-data">
+                    
+                    <input type="hidden" name="_subject" value="استمارة تواصل جديدة - موقع المحامي مؤيد">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
 
-                <div class="form-group">
-                    <label>الاسم الكامل:</label>
-                    <input type="text" name="الاسم" class="form-control" required placeholder="الاسم الثلاثي">
-                </div>
+                    <div class="form-group">
+                        <label>الاسم الكامل:</label>
+                        <input type="text" name="الاسم" class="form-control" required placeholder="الاسم الثلاثي">
+                    </div>
 
-                <div class="form-group">
-                    <label>رقم التواصل:</label>
-                    <input type="tel" name="رقم_الهاتف" class="form-control" required placeholder="05xxxxxxxx">
-                </div>
+                    <div class="form-group">
+                        <label>رقم التواصل:</label>
+                        <input type="tel" name="رقم_الهاتف" class="form-control" required placeholder="05xxxxxxxx">
+                    </div>
 
-                <div class="form-group">
-                    <label>تحميل ملف (PDF/صور):</label>
-                    <input type="file" name="المرفق" class="form-control" accept="image/*,.pdf,.doc,.docx" required>
-                </div>
+                    <div class="form-group">
+                        <label>تحميل ملف (PDF/صور):</label>
+                        <input type="file" name="المرفق" class="form-control" accept="image/*,.pdf,.doc,.docx" required>
+                    </div>
 
-                <div class="form-group">
-                    <label>ملاحظات إضافية:</label>
-                    <textarea name="الرسالة" class="form-control" rows="3"></textarea>
-                </div>
+                    <div class="form-group">
+                        <label>ملاحظات إضافية:</label>
+                        <textarea name="الرسالة" class="form-control" rows="3"></textarea>
+                    </div>
 
-                <button type="submit" class="submit-btn">إرسال البيانات الآن</button>
-            </form>
+                    <button type="submit" id="submitBtn" class="submit-btn">إرسال البيانات الآن</button>
+                </form>
+            </div>
         </section>
 
     </div>
@@ -210,6 +225,50 @@
     <footer>
         <p>جميع الحقوق محفوظة &copy; 2024 مكتب المحامي مؤيد بدر آل إسحاق</p>
     </footer>
+
+    <!-- سكريبت التعامل مع الإرسال -->
+    <script>
+        const form = document.getElementById('contactForm');
+        const formContainer = document.getElementById('form-container');
+        const successMessage = document.getElementById('success-message');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // منع إعادة تحميل الصفحة
+            
+            // تغيير نص الزر ليدل على المعالجة
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري الإرسال...';
+            submitBtn.style.opacity = '0.7';
+
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // إخفاء الاستمارة وإظهار رسالة الشكر
+                    formContainer.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    form.reset(); // تفريغ الحقول
+                } else {
+                    alert("حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.");
+                    submitBtn.innerHTML = 'إرسال البيانات الآن';
+                    submitBtn.style.opacity = '1';
+                }
+            })
+            .catch(error => {
+                alert("تعذر الإرسال. تأكد من اتصالك بالإنترنت.");
+                console.error('Error:', error);
+                submitBtn.innerHTML = 'إرسال البيانات الآن';
+                submitBtn.style.opacity = '1';
+            });
+        });
+    </script>
 
 </body>
 </html>
