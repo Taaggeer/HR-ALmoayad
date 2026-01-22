@@ -3,215 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>توظيف - مكتب المحامي مؤيد بدر آل إسحاق</title>
+    <title>مكتب المحامي مؤيد بدر ال اسحاق | توظيف</title>
     
-    <!-- جلب خط عربي جميل (Tajawal) -->
+    <!-- لون المتصفح -->
+    <meta name="theme-color" content="#0f172a">
+    
+    <!-- الأيقونة -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
+
+    <!-- الخطوط -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700;800&display=swap" rel="stylesheet">
-    
-    <!-- مكتبة الأيقونات (Font Awesome) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- مكتبة الأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --primary-gold: #c5a059; /* لون ذهبي مستوحى من الصورة */
-            --dark-bg: #1a1a1a;
-            --light-text: #f4f4f4;
-            --whatsapp-green: #25D366;
-            --phone-blue: #007bff;
+            /* تدرج ذهبي فاخر */
+            --gold-gradient: linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            --dark-bg: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-dark: #1e293b;
+            --border-gold: #c5a028;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
         }
 
         body {
-            font-family: 'Tajawal', sans-serif;
             background-color: var(--dark-bg);
-            background-image: linear-gradient(to bottom right, #1a1a1a, #000000);
-            color: var(--light-text);
-            line-height: 1.6;
+            background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 100%);
+            color: var(--text-dark);
             min-height: 100vh;
-            padding-bottom: 80px; /* مساحة للأزرار العائمة */
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
         }
 
-        /* تنسيق الحاوية الرئيسية */
-        .container {
-            max-width: 600px;
-            margin: 40px auto;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #333;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            text-align: center;
-        }
-
-        /* الشعار والعنوان */
-        .header img {
-            max-width: 150px;
-            margin-bottom: 20px;
-        }
-        
-        .header h1 {
-            font-size: 1.8rem;
-            color: var(--primary-gold);
-            margin-bottom: 10px;
-            font-weight: 800;
-        }
-
-        .header h2 {
-            font-size: 1.2rem;
-            font-weight: 300;
-            color: #ddd;
-            margin-bottom: 30px;
-            border-bottom: 2px solid var(--primary-gold);
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        /* تفاصيل الوظيفة */
-        .job-details {
-            background-color: #f9f9f9;
-            color: #333;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .job-details::before {
+        /* تأثير الخلفية المزخرفة */
+        body::before {
             content: '';
-            position: absolute;
+            position: fixed;
             top: 0;
-            right: 0;
+            left: 0;
             width: 100%;
-            height: 5px;
-            background: var(--primary-gold);
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
         }
 
-        .job-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #000;
+        /* النصوص الذهبية اللامعة */
+        .text-gradient-gold {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% auto;
+            animation: shine 3s linear infinite;
         }
 
-        .requirements {
-            text-align: right;
-            margin-bottom: 20px;
+        @keyframes shine {
+            to { background-position: 200% center; }
         }
 
-        .requirements li {
+        /* الهيدر */
+        header {
+            text-align: center;
+            padding: 4rem 1rem 2rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .logo-box {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #1e293b, #000);
+            border: 2px solid #D4AF37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .logo-box i {
+            font-size: 3rem;
+            color: #D4AF37;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        /* الحاوية الرئيسية */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem 6rem; /* Padding bottom for footer space */
+        }
+
+        /* البطاقات */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-top: 4px solid #D4AF37;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .card:nth-child(2) { animation-delay: 0.2s; }
+
+        .card-title {
+            font-size: 1.6rem;
+            color: var(--dark-bg);
+            margin-bottom: 1.5rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-title i { color: #b38728; }
+
+        /* قائمة المتطلبات */
+        .job-details ul {
             list-style: none;
-            margin-bottom: 10px;
+        }
+
+        .job-details li {
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: flex-start;
             font-size: 1.1rem;
+            line-height: 1.6;
         }
 
-        .requirements li i {
-            color: var(--primary-gold);
-            margin-left: 10px;
+        .job-details li .icon-box {
+            min-width: 40px;
+            height: 40px;
+            background: #fff9e6;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+            color: #b38728;
         }
 
-        .important-note {
-            background-color: #ffeeba;
-            color: #856404;
-            padding: 10px;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-            border: 1px dashed #d39e00;
+        /* صندوق التحذير */
+        .alert-box {
+            background: #fff1f2;
+            border: 1px dashed #e11d48;
+            color: #9f1239;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            text-align: center;
+            font-weight: 600;
         }
 
-        /* زر الإيميل */
-        .email-btn {
-            display: inline-block;
-            background-color: var(--primary-gold);
-            color: #000;
+        /* زر الايميل */
+        .cta-btn {
+            display: block;
+            background: var(--gold-gradient);
+            color: #0f172a;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 12px;
             text-decoration: none;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: 0.3s;
-            margin-bottom: 10px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
         }
 
-        .email-btn:hover {
-            background-color: #d4af37;
-            transform: translateY(-2px);
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
         }
 
         /* نموذج التواصل */
-        .contact-form {
-            text-align: right;
-            margin-top: 40px;
-            border-top: 1px solid #444;
-            padding-top: 20px;
-        }
-
-        .contact-form h3 {
-            color: var(--primary-gold);
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
+        .form-group { margin-bottom: 1.2rem; }
 
         .form-group label {
             display: block;
-            margin-bottom: 5px;
-            color: #ccc;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: var(--dark-bg);
         }
 
-        .form-group input, .form-group textarea {
+        .form-control {
             width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #444;
-            background-color: #2a2a2a;
-            color: #fff;
-            font-family: 'Tajawal', sans-serif;
+            padding: 14px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: #f8fafc;
+            transition: 0.3s;
         }
 
-        .form-group input:focus {
+        .form-control:focus {
             outline: none;
-            border-color: var(--primary-gold);
+            border-color: #D4AF37;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
         }
 
         .submit-btn {
             width: 100%;
-            padding: 12px;
-            background-color: #333;
-            color: var(--primary-gold);
-            border: 1px solid var(--primary-gold);
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
+            padding: 14px;
+            background: var(--dark-bg);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
             font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
             transition: 0.3s;
+            border: 1px solid transparent;
         }
 
         .submit-btn:hover {
-            background-color: var(--primary-gold);
-            color: #000;
+            background: transparent;
+            color: var(--dark-bg);
+            border-color: var(--dark-bg);
         }
 
-        /* الأزرار العائمة */
+        /* أزرار العائمة */
         .floating-container {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
             display: flex;
             flex-direction: column;
             gap: 15px;
-            z-index: 1000;
         }
 
         .float-btn {
@@ -221,114 +268,148 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
+            font-size: 26px;
+            color: white;
             text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
             transition: 0.3s;
-            font-size: 28px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .whatsapp-float {
-            background-color: var(--whatsapp-green);
+        .float-btn::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0);
+            transition: 0.3s;
         }
 
-        .phone-float {
-            background-color: var(--phone-blue); /* أو يمكن جعلها ذهبي */
-            background-color: var(--primary-gold);
-        }
+        .float-btn:hover::after { opacity: 1; transform: scale(1); }
+        .float-btn:hover { transform: translateY(-5px); }
 
-        .float-btn:hover {
-            transform: scale(1.1);
-        }
+        .whatsapp { background: #25D366; }
+        .phone { background: linear-gradient(45deg, #BF953F, #AA771C); }
 
         /* الفوتر */
         footer {
             text-align: center;
-            margin-top: 30px;
-            font-size: 0.8rem;
-            color: #777;
+            padding: 2rem;
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: auto;
         }
 
-        @media (max-width: 480px) {
-            .container {
-                margin: 20px 10px;
-                padding: 20px;
-            }
+        /* حركات */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* تجاوب */
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            .card { padding: 1.5rem; }
+            .floating-container { bottom: 20px; right: 20px; }
+            .float-btn { width: 50px; height: 50px; font-size: 22px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- رأس الصفحة -->
-        <header class="header">
-            <!-- يمكنك وضع رابط الشعار هنا بدلاً من النص -->
-            <div style="font-size: 3rem; margin-bottom: 10px; color: var(--primary-gold);">
-                <i class="fa-solid fa-scale-balanced"></i>
-            </div>
-            <h1>مكتب المحامي مؤيد بدر آل إسحاق</h1>
-            <h2>للمحاماة والاستشارات القانونية</h2>
-        </header>
+    <header>
+        <div class="logo-box">
+            <i class="fa-solid fa-scale-balanced"></i>
+        </div>
+        <h1 class="text-gradient-gold">مكتب المحامي مؤيد بدر ال اسحاق</h1>
+        <p>الريادة في الخدمات القانونية</p>
+    </header>
 
-        <!-- تفاصيل الإعلان -->
-        <section class="job-details">
-            <div class="job-title">
-                <i class="fa-solid fa-briefcase"></i> مطلوب: محامي متدرب
-            </div>
+    <div class="container">
+        
+        <!-- بطاقة الوظيفة -->
+        <div class="card job-details">
+            <h2 class="card-title"><i class="fa-solid fa-gavel"></i> إعلان توظيف كوادر قانونية</h2>
             
-            <ul class="requirements">
-                <li><i class="fa-solid fa-location-dot"></i> <strong>مقر العمل:</strong> يشترط التواجد في مدينة <span>جدة</span>.</li>
-                <li><i class="fa-solid fa-file-contract"></i> <strong>الخبرة:</strong> حديث التخرج / أو حسب الكفاءة.</li>
-                <li><i class="fa-solid fa-id-card"></i> <strong>شرط أساسي:</strong> إرسال السيرة الذاتية (CV).</li>
+            <ul>
+                <li>
+                    <div class="icon-box"><i class="fa-solid fa-user-tie"></i></div>
+                    <div>
+                        <strong>المسمى الوظيفي:</strong><br>
+                        محامي متدرب
+                    </div>
+                </li>
+                <li>
+                    <div class="icon-box"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <div>
+                        <strong>مقر العمل:</strong><br>
+                        مدينة جدة (يشترط الإقامة في جدة)
+                    </div>
+                </li>
+                <li>
+                    <div class="icon-box"><i class="fa-solid fa-file-circle-check"></i></div>
+                    <div>
+                        <strong>المتطلبات الأساسية:</strong><br>
+                        السيرة الذاتية (CV) + <span style="color: #e11d48; font-weight: bold;">صورة شخصية حديثة</span>
+                    </div>
+                </li>
             </ul>
 
-            <div class="important-note">
-                <i class="fa-solid fa-circle-exclamation"></i>
-                تنبيه: يجب إرفاق صورة شخصية حديثة مع السيرة الذاتية ليتم النظر في الطلب.
+            <div class="alert-box">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                تنبيه: لن يتم النظر في أي طلب لا يحتوي على صورة شخصية.
             </div>
 
-            <p style="margin-bottom: 10px;">ترسل الطلبات بعنوان "محامي متدرب" إلى:</p>
-            <a href="mailto:hr@lawmbi.com" class="email-btn">
-                hr@lawmbi.com <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:hr@lawmbi.com" class="cta-btn">
+                <i class="fa-solid fa-paper-plane"></i> إرسال السيرة الذاتية الآن
+                <div style="font-size: 0.8rem; font-weight: normal; margin-top: 5px;">hr@lawmbi.com</div>
             </a>
-        </section>
+        </div>
 
-        <!-- نموذج التواصل السريع -->
-        <section class="contact-form">
-            <h3>أو اترك بياناتك لنتواصل معك</h3>
-            <form action="#" method="post"> <!-- ملاحظة: يحتاج هذا النموذج لبرمجة خلفية ليعمل فعلياً -->
+        <!-- بطاقة نموذج التواصل -->
+        <div class="card">
+            <h2 class="card-title"><i class="fa-regular fa-envelope"></i> استمارة التواصل السريع</h2>
+            <form action="mailto:almoayad.law@gmail.com" method="post" enctype="text/plain">
                 <div class="form-group">
-                    <label for="name">الاسم الثلاثي:</label>
-                    <input type="text" id="name" name="name" required placeholder="ادخل اسمك هنا..">
+                    <label>الاسم الكامل</label>
+                    <input type="text" name="الاسم" class="form-control" placeholder="اكتب اسمك الثلاثي" required>
                 </div>
+                
                 <div class="form-group">
-                    <label for="phone">رقم الجوال:</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="05xxxxxxxx">
+                    <label>رقم الجوال</label>
+                    <input type="tel" name="رقم_التواصل" class="form-control" placeholder="05xxxxxxxx" required style="direction: ltr; text-align: right;">
                 </div>
+
                 <div class="form-group">
-                    <label for="message">ملاحظات إضافية:</label>
-                    <textarea id="message" name="message" rows="3" placeholder="اختياري.."></textarea>
+                    <label>رسالتك</label>
+                    <textarea name="الرسالة" class="form-control" rows="3" placeholder="اكتب استفسارك هنا..."></textarea>
                 </div>
-                <button type="submit" class="submit-btn">إرسال البيانات</button>
+
+                <button type="submit" class="submit-btn">
+                    إرسال البيانات <i class="fa-solid fa-arrow-left" style="margin-right: 5px;"></i>
+                </button>
             </form>
-        </section>
+        </div>
 
         <footer>
-            <p>شارع فلسطين - مركز الأعمال - الدور السادس مكتب 604</p>
-            <p>&copy; 2024 مكتب المحامي مؤيد بدر آل إسحاق</p>
+            جميع الحقوق محفوظة &copy; 2024 مكتب المحامي مؤيد بدر ال اسحاق
         </footer>
+
     </div>
 
-    <!-- الأزرار العائمة (واتس واتصال) -->
+    <!-- الأزرار العائمة -->
     <div class="floating-container">
-        <!-- زر الاتصال -->
-        <a href="tel:0560077098" class="float-btn phone-float" title="اتصال هاتفي">
-            <i class="fa-solid fa-phone"></i>
-        </a>
-        <!-- زر الواتساب -->
-        <!-- الرقم بتنسيق دولي 966 بدون الصفر في البداية -->
-        <a href="https://wa.me/966560077098" target="_blank" class="float-btn whatsapp-float" title="تواصل واتساب">
+        <a href="https://wa.me/966560077098" target="_blank" class="float-btn whatsapp">
             <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="tel:0560077098" class="float-btn phone">
+            <i class="fa-solid fa-phone-flip"></i>
         </a>
     </div>
 
