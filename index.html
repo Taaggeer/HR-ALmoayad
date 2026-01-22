@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>توظيف - مكتب المحامي مؤيد بدر آل إسحاق</title>
+    
+    <!-- جلب خط عربي جميل (Tajawal) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700;800&display=swap" rel="stylesheet">
+    
+    <!-- مكتبة الأيقونات (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-gold: #c5a059; /* لون ذهبي مستوحى من الصورة */
+            --dark-bg: #1a1a1a;
+            --light-text: #f4f4f4;
+            --whatsapp-green: #25D366;
+            --phone-blue: #007bff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--dark-bg);
+            background-image: linear-gradient(to bottom right, #1a1a1a, #000000);
+            color: var(--light-text);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 80px; /* مساحة للأزرار العائمة */
+        }
+
+        /* تنسيق الحاوية الرئيسية */
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        /* الشعار والعنوان */
+        .header img {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            font-size: 1.8rem;
+            color: var(--primary-gold);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .header h2 {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #ddd;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--primary-gold);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* تفاصيل الوظيفة */
+        .job-details {
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .job-details::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary-gold);
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #000;
+        }
+
+        .requirements {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .requirements li {
+            list-style: none;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .requirements li i {
+            color: var(--primary-gold);
+            margin-left: 10px;
+        }
+
+        .important-note {
+            background-color: #ffeeba;
+            color: #856404;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            border: 1px dashed #d39e00;
+        }
+
+        /* زر الإيميل */
+        .email-btn {
+            display: inline-block;
+            background-color: var(--primary-gold);
+            color: #000;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-bottom: 10px;
+        }
+
+        .email-btn:hover {
+            background-color: #d4af37;
+            transform: translateY(-2px);
+        }
+
+        /* نموذج التواصل */
+        .contact-form {
+            text-align: right;
+            margin-top: 40px;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+        }
+
+        .contact-form h3 {
+            color: var(--primary-gold);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #ccc;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            background-color: #2a2a2a;
+            color: #fff;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #333;
+            color: var(--primary-gold);
+            border: 1px solid var(--primary-gold);
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-gold);
+            color: #000;
+        }
+
+        /* الأزرار العائمة */
+        .floating-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .float-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: 0.3s;
+            font-size: 28px;
+        }
+
+        .whatsapp-float {
+            background-color: var(--whatsapp-green);
+        }
+
+        .phone-float {
+            background-color: var(--phone-blue); /* أو يمكن جعلها ذهبي */
+            background-color: var(--primary-gold);
+        }
+
+        .float-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* الفوتر */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                margin: 20px 10px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- رأس الصفحة -->
+        <header class="header">
+            <!-- يمكنك وضع رابط الشعار هنا بدلاً من النص -->
+            <div style="font-size: 3rem; margin-bottom: 10px; color: var(--primary-gold);">
+                <i class="fa-solid fa-scale-balanced"></i>
+            </div>
+            <h1>مكتب المحامي مؤيد بدر آل إسحاق</h1>
+            <h2>للمحاماة والاستشارات القانونية</h2>
+        </header>
+
+        <!-- تفاصيل الإعلان -->
+        <section class="job-details">
+            <div class="job-title">
+                <i class="fa-solid fa-briefcase"></i> مطلوب: محامي متدرب
+            </div>
+            
+            <ul class="requirements">
+                <li><i class="fa-solid fa-location-dot"></i> <strong>مقر العمل:</strong> يشترط التواجد في مدينة <span>جدة</span>.</li>
+                <li><i class="fa-solid fa-file-contract"></i> <strong>الخبرة:</strong> حديث التخرج / أو حسب الكفاءة.</li>
+                <li><i class="fa-solid fa-id-card"></i> <strong>شرط أساسي:</strong> إرسال السيرة الذاتية (CV).</li>
+            </ul>
+
+            <div class="important-note">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                تنبيه: يجب إرفاق صورة شخصية حديثة مع السيرة الذاتية ليتم النظر في الطلب.
+            </div>
+
+            <p style="margin-bottom: 10px;">ترسل الطلبات بعنوان "محامي متدرب" إلى:</p>
+            <a href="mailto:hr@lawmbi.com" class="email-btn">
+                hr@lawmbi.com <i class="fa-solid fa-envelope"></i>
+            </a>
+        </section>
+
+        <!-- نموذج التواصل السريع -->
+        <section class="contact-form">
+            <h3>أو اترك بياناتك لنتواصل معك</h3>
+            <form action="#" method="post"> <!-- ملاحظة: يحتاج هذا النموذج لبرمجة خلفية ليعمل فعلياً -->
+                <div class="form-group">
+                    <label for="name">الاسم الثلاثي:</label>
+                    <input type="text" id="name" name="name" required placeholder="ادخل اسمك هنا..">
+                </div>
+                <div class="form-group">
+                    <label for="phone">رقم الجوال:</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="05xxxxxxxx">
+                </div>
+                <div class="form-group">
+                    <label for="message">ملاحظات إضافية:</label>
+                    <textarea id="message" name="message" rows="3" placeholder="اختياري.."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">إرسال البيانات</button>
+            </form>
+        </section>
+
+        <footer>
+            <p>شارع فلسطين - مركز الأعمال - الدور السادس مكتب 604</p>
+            <p>&copy; 2024 مكتب المحامي مؤيد بدر آل إسحاق</p>
+        </footer>
+    </div>
+
+    <!-- الأزرار العائمة (واتس واتصال) -->
+    <div class="floating-container">
+        <!-- زر الاتصال -->
+        <a href="tel:0560077098" class="float-btn phone-float" title="اتصال هاتفي">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+        <!-- زر الواتساب -->
+        <!-- الرقم بتنسيق دولي 966 بدون الصفر في البداية -->
+        <a href="https://wa.me/966560077098" target="_blank" class="float-btn whatsapp-float" title="تواصل واتساب">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+</body>
+</html>
